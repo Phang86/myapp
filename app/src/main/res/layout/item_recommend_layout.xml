@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginLeft="@dimen/dimen_15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginBottom="@dimen/dimen_8dp">
+
+            <ImageView
+                android:id="@+id/iv_header"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_50dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="@dimen/dimen_204dp"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:layout_marginBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16sp" />
+
+                <TextView
+                    android:id="@+id/tv_title_name"
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:textColor="#9f9f9f"
+                    android:textSize="@dimen/size_12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_enjoy"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="@dimen/dimen_330dp"-->
+<!--            android:layout_height="@dimen/dimen_190dp"/>-->
+        <FrameLayout
+            android:id="@+id/player_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_220dp"
+            android:background="@mipmap/good"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <xyz.doikki.videocontroller.component.PrepareView
+                android:id="@+id/prepare_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/dimen_5dp">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_20dp"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:background="@mipmap/comment" />
+
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:background="@mipmap/collect" />
+
+                <TextView
+                    android:id="@+id/tv_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_5dp">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_20dp"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:background="@mipmap/dianzan" />
+
+                <TextView
+                    android:id="@+id/tv_dz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_8dp"
+        android:background="@color/gray_200"/>
+</LinearLayout>

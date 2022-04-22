@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/splash"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dimen_44dp"
+        android:layout_marginRight="@dimen/dimen_44dp"
+        android:layout_marginBottom="@dimen/dimen_90dp">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/shape_login"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_16sp"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_16sp"
+            android:background="@drawable/shape_register" />
+    </RelativeLayout>
+
+</RelativeLayout>

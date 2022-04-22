@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".fragment.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@color/blue_100"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_35dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@drawable/shape_search"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_20dp"
+                android:layout_height="@dimen/dimen_20dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:background="@mipmap/search" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_25dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:background="@null"
+                android:hint="@string/searchText"
+                android:textColorHint="@color/gray_600"
+                android:textSize="@dimen/size_16sp" />
+
+        </LinearLayout>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/slidingTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_weight="1"
+            app:tl_indicator_corner_radius="@dimen/dimen_1.5dp"
+            app:tl_indicator_height="@dimen/dimen_3dp"
+            app:tl_indicator_width="@dimen/dimen_20dp"
+            app:tl_indicator_color="@color/yellow_100"
+            app:tl_textsize="@dimen/size_18sp"
+            app:tl_textUnselectColor="@color/white"
+            app:tl_textSelectColor="@color/yellow_100"/>
+    </LinearLayout>
+
+    <com.yyzy.myapp.view.FixedViewPager
+        android:id="@+id/fixedViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_weight="1">
+
+    </com.yyzy.myapp.view.FixedViewPager>
+
+
+</LinearLayout>
