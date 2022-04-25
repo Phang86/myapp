@@ -72,6 +72,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 //设置占位符图片,当网络请求的网路图未加载出来,便使用占位图片;//设置网络图片为圆形展示出来
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(vh.ivHeader);
+        vh.flagCollect = dataEntity.isFlagCollect();
+        vh.flagLike = dataEntity.isFlagLike();
         vh.mPosition = position;
     }
 
@@ -87,9 +89,10 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView tvTitle, tvTitleName, tvComment, tvCollect, tvDz;
-        private ImageView ivHeader, ivEnjoy, mThumb;
+        private ImageView ivHeader, ivEnjoy, mThumb,imgCollect,imgLike;
         public FrameLayout mPlayerContainer;
         public PrepareView mPrepareView;
+        private boolean flagCollect,flagLike;
         public int mPosition;
 
         public ViewHolder(@NonNull View v) {
@@ -104,6 +107,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mPlayerContainer = v.findViewById(R.id.player_container);
             mPrepareView = v.findViewById(R.id.prepare_view);
             mThumb = mPrepareView.findViewById(R.id.thumb);
+            imgCollect = v.findViewById(R.id.img_collect);
+            imgLike = v.findViewById(R.id.img_like);
             if (mOnItemChildClickListener != null) {
                 mPlayerContainer.setOnClickListener(this);
             }
@@ -112,6 +117,40 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             }
             //通过tag将ViewHolder和itemView绑定
             v.setTag(this);
+            imgCollect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int collectNum = Integer.parseInt(tvCollect.getText().toString());
+                    if (flagCollect){
+                        if (collectNum > 0){  //已收藏
+                            tvCollect.setText(String.valueOf(--collectNum));
+                            imgCollect.setImageResource(R.mipmap.collect);
+                        }
+                    }else {
+                        //未收藏
+                        tvCollect.setText(String.valueOf(++collectNum));
+                        imgCollect.setImageResource(R.mipmap.collect_select);
+                    }
+                    flagCollect = !flagCollect;
+                }
+            });
+            imgLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int likeNum = Integer.parseInt(tvDz.getText().toString());
+                    if (flagLike){
+                        if (likeNum > 0){  //已收藏
+                            tvDz.setText(String.valueOf(--likeNum));
+                            imgLike.setImageResource(R.mipmap.dianzan);
+                        }
+                    }else {
+                        //未收藏
+                        tvDz.setText(String.valueOf(++likeNum));
+                        imgLike.setImageResource(R.mipmap.dianzan_select);
+                    }
+                    flagLike = !flagLike;
+                }
+            });
         }
 
         @Override

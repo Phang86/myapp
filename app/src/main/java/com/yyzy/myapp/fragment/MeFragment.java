@@ -37,12 +37,15 @@ import com.yyzy.myapp.entity.ViedeoDataEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+import skin.support.SkinCompatManager;
+
 public class MeFragment extends BaseFragment {
 
     private Button btn;
     private ImageView titleImg;
     private TextView titleName,titleAuthor,readCount,likeCount,commentCount,enjoyCount;
     private List<MyEntity> datas = new ArrayList<>();
+    private LinearLayout skin;
 
     public MeFragment() {
     }
@@ -60,7 +63,6 @@ public class MeFragment extends BaseFragment {
     @Override
     protected void initView() {
         btn = mRootView.findViewById(R.id.exitLogin);
-
         titleImg = mRootView.findViewById(R.id.titleImg);
         titleName = mRootView.findViewById(R.id.titleName);
         titleAuthor = mRootView.findViewById(R.id.titleAuthor);
@@ -68,7 +70,21 @@ public class MeFragment extends BaseFragment {
         likeCount = mRootView.findViewById(R.id.tv_like);
         commentCount = mRootView.findViewById(R.id.tv_comment);
         enjoyCount = mRootView.findViewById(R.id.tv_enjoy);
-
+        skin = mRootView.findViewById(R.id.skin);
+        skin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String skin = findByKey("skin");
+                if (skin.equals("night")){
+                    // 恢复应用默认皮肤
+                    SkinCompatManager.getInstance().restoreDefaultTheme();
+                    insertVal("skin","defualt");
+                }else {
+                    SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN); // 后缀加载
+                    insertVal("skin","night");
+                }
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,11 +96,12 @@ public class MeFragment extends BaseFragment {
         btn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN){
-                    v.setBackgroundResource(R.drawable.shape_btn_exitlogin);
-                }else if (event.getAction() == MotionEvent.ACTION_UP){
-                    v.setBackgroundResource(R.drawable.shape_btn_exitlogin2);
-                }
+//                if (event.getAction() == MotionEvent.ACTION_DOWN){
+//                    v.setBackgroundResource(R.drawable.shape_btn_exitlogin);
+//                }else
+//                if (event.getAction() == MotionEvent.ACTION_UP){
+//                    v.setBackgroundResource(R.drawable.shape_btn_exitlogin2);
+//                }
                 return false;
             }
         });

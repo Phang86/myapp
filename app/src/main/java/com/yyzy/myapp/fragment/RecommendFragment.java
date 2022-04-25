@@ -268,7 +268,7 @@ public class RecommendFragment extends BaseFragment implements OnItemChildClickL
     }
 
     private void releaseVideoView() {
-        Log.e("TAG", "startPlay: " + getActivity().getExternalCacheDir());
+        //Log.e("TAG", "startPlay: " + getActivity().getExternalCacheDir());
         mVideoView.release();
         if (mVideoView.isFullScreen()) {
             mVideoView.stopFullScreen();

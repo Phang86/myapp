@@ -1,8 +1,11 @@
 package com.yyzy.myapp.fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
@@ -111,5 +114,17 @@ public abstract class BaseFragment extends Fragment {
      */
     protected VideoViewManager getVideoViewManager() {
         return VideoViewManager.instance();
+    }
+
+    protected String findByKey(String key) {
+        SharedPreferences sp = getActivity().getSharedPreferences("sp_ttit", MODE_PRIVATE);
+        return sp.getString(key, "");
+    }
+
+    protected void insertVal(String key, String val) {
+        SharedPreferences sp = getActivity().getSharedPreferences("sp_ttit", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(key, val);
+        editor.commit();
     }
 }

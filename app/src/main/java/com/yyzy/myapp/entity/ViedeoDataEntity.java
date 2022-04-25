@@ -11,6 +11,8 @@ public class ViedeoDataEntity implements Serializable {
     private int likeNum;
     private String title;
     private String playUrl;
+    private boolean isFlagCollect;
+    private boolean isFlagLike;
 
     public ViedeoDataEntity(String author, int collectNum, int commentNum, String coverUrl, String headurl, int likeNum, String title) {
         this.author = author;
@@ -88,5 +90,21 @@ public class ViedeoDataEntity implements Serializable {
 
     public void setPlayUrl(String playUrl) {
         this.playUrl = playUrl;
+    }
+
+    public boolean isFlagCollect() {
+        return isFlagCollect;
+    }
+
+    public void setFlagCollect(boolean flagCollect) {
+        isFlagCollect = flagCollect;
+    }
+
+    public boolean isFlagLike() {
+        return isFlagLike;
+    }
+
+    public void setFlagLike(boolean flagLike) {
+        isFlagLike = flagLike;
     }
 }

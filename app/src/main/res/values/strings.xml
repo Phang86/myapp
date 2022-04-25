@@ -18,6 +18,7 @@
     <string name="myCollect">我的收藏</string>
     <string name="skin">换肤</string>
     <string name="exit">退出</string>
+    <string name="cllectDetail">资讯详情</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

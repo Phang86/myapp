@@ -1,6 +1,7 @@
 package com.yyzy.myapp.activity;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -59,9 +60,9 @@ public class RegisterActivity extends BaseActivity {
         mbtnRegister.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     v.setBackgroundResource(R.drawable.shape_register_activity_btn);
-                }else if(event.getAction() == MotionEvent.ACTION_UP){
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     v.setBackgroundResource(R.drawable.shape_login_activity_btn2);
                 }
                 return false;
@@ -92,6 +93,9 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e("TAG", "onFailureError: " + e.getMessage());
+                Looper.prepare();
+                showToast("注册失败！服务器连接超时！");
+                Looper.loop();
             }
 
             @Override

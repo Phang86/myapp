@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
-        android:background="@color/white">
+        android:background="@color/blue_text">
 
         <Button
             android:id="@+id/callback"
@@ -25,8 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="资讯详情"
-            android:textColor="@color/black"
+            android:text="@string/cllectDetail"
+            android:textColor="@color/white_text"
             android:textSize="@dimen/size_18sp"
             android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginTop="@dimen/dimen_15dp"
         android:layout_marginRight="@dimen/dimen_15dp"
-        android:text="戴假发ISFJ时激发设计费啥us啥都覅哦豁发丝恢复"
+        android:text="好好好好"
         android:textColor="@color/black"
         android:textSize="@dimen/size_18sp" />
 
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_20dp"
                 android:layout_marginBottom="@dimen/dimen_5dp"
-                android:text="兔兔IT血糖"
+                android:text="好好好"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_16sp" />
 
@@ -87,7 +87,7 @@
                 android:id="@+id/title_Author"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_20dp"
-                android:text="欢迎来到此平台"
+                android:text="号号好好"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_12sp" />
 
@@ -109,7 +109,7 @@
         android:layout_height="@dimen/dimen_40dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginRight="@dimen/dimen_15dp"
-        android:text="就分手迪欧少房间爱安抚巾偶就安排静安寺放假安排佛山市放假啊是的"
+        android:text="好好好阿好好好"
         android:textColor="@color/black" />
 
     <ImageView
@@ -129,7 +129,7 @@
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginTop="@dimen/dimen_10dp"
         android:layout_marginRight="@dimen/dimen_15dp"
-        android:text="发动机阿斯顿放假"
+        android:text="好好阿好"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold" />

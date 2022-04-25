@@ -92,6 +92,7 @@
                 android:layout_weight="1">
 
                 <ImageView
+                    android:id="@+id/img_collect"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimen_20dp"
                     android:background="@mipmap/collect"
@@ -114,6 +115,7 @@
                 android:layout_weight="1">
 
                 <ImageView
+                    android:id="@+id/img_like"
                     android:layout_width="@dimen/dimen_20dp"
                     android:layout_height="@dimen/dimen_20dp"
                     android:background="@mipmap/dianzan"

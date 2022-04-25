@@ -58,9 +58,6 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         vh.tvComment.setText(String.valueOf(dataEntity.getCommentNum()));
         vh.tvCollect.setText(String.valueOf(dataEntity.getCollectNum()));
         vh.tvDz.setText(String.valueOf(dataEntity.getLikeNum()));
-//        Picasso.get().load(dataEntity.getHeadurl()).into(vh.ivHeader);
-//        Picasso.get().load(dataEntity.getCoverUrl()).into(vh.ivEnjoy);
-        //Glide.with(this).load(url).into(imageView);
         Glide.with(mContext)
                 .load(dataEntity.getCoverUrl())
                 //设置圆角为30像素
@@ -71,6 +68,8 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 //设置占位符图片,当网络请求的网路图未加载出来,便使用占位图片;//设置网络图片为圆形展示出来
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(vh.ivHeader);
+        vh.flagCollect = dataEntity.isFlagCollect();
+        vh.flagLike = dataEntity.isFlagLike();
     }
 
     @Override
@@ -80,7 +79,8 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView tvTitle,tvTitleName,tvComment,tvCollect,tvDz;
-        private ImageView ivHeader,ivEnjoy;
+        private ImageView ivHeader,ivEnjoy,imgCollect,imgLike;
+        private boolean flagCollect,flagLike;
         public ViewHolder(@NonNull View v) {
             super(v);
             tvTitle = v.findViewById(R.id.tv_title);
@@ -90,6 +90,42 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             tvDz = v.findViewById(R.id.tv_dz);
             ivHeader = v.findViewById(R.id.iv_header);
             ivEnjoy = v.findViewById(R.id.iv_enjoy);
+            imgCollect = v.findViewById(R.id.img_collect);
+            imgLike = v.findViewById(R.id.img_like);
+            imgCollect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int collectNum = Integer.parseInt(tvCollect.getText().toString());
+                    if (flagCollect){
+                        if (collectNum > 0){  //已收藏
+                            tvCollect.setText(String.valueOf(--collectNum));
+                            imgCollect.setImageResource(R.mipmap.collect);
+                        }
+                    }else {
+                        //未收藏
+                        tvCollect.setText(String.valueOf(++collectNum));
+                        imgCollect.setImageResource(R.mipmap.collect_select);
+                    }
+                    flagCollect = !flagCollect;
+                }
+            });
+            imgLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int likeNum = Integer.parseInt(tvDz.getText().toString());
+                    if (flagLike){
+                        if (likeNum > 0){  //已收藏
+                            tvDz.setText(String.valueOf(--likeNum));
+                            imgLike.setImageResource(R.mipmap.dianzan);
+                        }
+                    }else {
+                        //未收藏
+                        tvDz.setText(String.valueOf(++likeNum));
+                        imgLike.setImageResource(R.mipmap.dianzan_select);
+                    }
+                    flagLike = !flagLike;
+                }
+            });
         }
     }
 }

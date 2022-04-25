@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.app.SkinAppCompatDelegateImpl;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
-    public static final String BASE_URLT = "http://192.168.43.202:8080/myapp";
-    public static final String BASE_URL = "http://192.168.43.202:8080/myapp";
+    public static final String BASE_URLT = "http://192.168.101.204:8080/myapp";
+    public static final String BASE_URL = "http://192.168.88.202:8080/myapp";
     public Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +43,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-
+    @NonNull
+    @Override
+    public AppCompatDelegate getDelegate() {
+        return SkinAppCompatDelegateImpl.get(this, this);
+    }
 }
