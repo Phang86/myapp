@@ -8,24 +8,25 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yyzy.myapp.R;
-
-import org.json.JSONObject;
+import com.yyzy.myapp.entity.User;
+import com.yyzy.myapp.fragment.MeFragment;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -36,6 +37,7 @@ public class LoginActivity extends BaseActivity {
 
     private EditText edUser, edPwd;
     private Button btnLogin;
+    private List<User> data = new ArrayList<>();
 
     @Override
     protected int initLayout() {
@@ -81,12 +83,6 @@ public class LoginActivity extends BaseActivity {
             return;
         }
         OkHttpClient okHttpClient = new OkHttpClient();
-//        Map map = new HashMap();
-//        map.put("username", user);
-//        map.put("password", pwd);
-//        JSONObject jsonObject = new JSONObject(map);
-//        String jsonStr = jsonObject.toString();
-//        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), jsonStr);
         FormBody.Builder formbody = new FormBody.Builder();
         formbody.add("user", user);
         formbody.add("pwd", pwd);
@@ -111,9 +107,19 @@ public class LoginActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (resultStr.equals("success")) {
+                        List<User> dataEntity = new Gson().fromJson(resultStr, new TypeToken<List<User>>() {
+                        }.getType());
+                        data = dataEntity;
+                        if (data.size() > 0 && data != null) {
+
+                            //拿到Username
+                            String user = data.get(0).getUserName();
                             intentJump(HomeActivity.class);
                             showToast("您已登录成功！");
+                            SharedPreferences sp = getSharedPreferences("sp_ttit",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit(); // 获取编辑器
+                            editor.putString("name",user);                          // 存入int类型数据
+                            editor.commit();
                         } else if (resultStr.equals("error")) {
                             showToast("登录失败！账号或密码不正确！");
                             return;

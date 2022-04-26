@@ -19,6 +19,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -71,12 +73,19 @@ public class RegisterActivity extends BaseActivity {
     }
 
 
+
     private void Register(String user, String pwd) {
         if (TextUtils.isEmpty(user)) {
             showToast("注册账号不能为空哦！");
             return;
         } else if (TextUtils.isEmpty(pwd)) {
             showToast("注册密码不能为空哦！");
+            return;
+        }else if (!checkPassword(pwd)){
+            showToast("密码填写的格式不正确！密码可混合使用大小写字母、数字，长度不低于8！");
+            return;
+        }else if (!checkUsername(user)){
+            showToast("用户名填写的格式不正确！用户名只能使用大小写字母，长度不低于6不大于20！");
             return;
         }
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -115,19 +124,6 @@ public class RegisterActivity extends BaseActivity {
                             showToast("注册失败！服务器连接超时！");
                             return;
                         }
-//                        try {
-//                            JSONObject json = new JSONObject(resultStr);
-//                            if("success".equals(json.getString("result"))){
-//                                JSONObject user = json.getJSONObject("data");
-//                                user.getString("username");
-//                                showToast(user.toString());
-//                            }else{
-//                                //失败
-//                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-
                     }
                 });
             }

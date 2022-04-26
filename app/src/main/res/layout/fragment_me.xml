@@ -59,7 +59,6 @@
                     android:id="@+id/titleAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimen_20dp"
-                    android:text="欢迎来到此平台"
                     android:textColor="@color/white_text"
                     android:textSize="@dimen/size_12sp" />
             </LinearLayout>

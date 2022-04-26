@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 25/04/2022 21:35:56
+ Date: 26/04/2022 22:33:38
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `my`  (
 -- ----------------------------
 -- Records of my
 -- ----------------------------
-INSERT INTO `my` VALUES (1, 'https://img0.baidu.com/it/u=1942253063,3807598283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', '华南一把刀', '欢迎来到此平台！', 745, 1249, 2346, 49);
+INSERT INTO `my` VALUES (1, 'https://img0.baidu.com/it/u=1942253063,3807598283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', '华南一把刀', '欢迎', 745, 1249, 2346, 49);
 
 -- ----------------------------
 -- Table structure for news
@@ -105,18 +105,14 @@ CREATE TABLE `tb_user`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
 INSERT INTO `tb_user` VALUES (1, 'mark', '13612345678', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '2017-03-23 22:37:41');
-INSERT INTO `tb_user` VALUES (6, 'root', 'root', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '2020-06-14 13:24:44');
-INSERT INTO `tb_user` VALUES (8, 'admin', 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '2020-06-14 13:46:40');
 INSERT INTO `tb_user` VALUES (10, 'Phang', NULL, '7C89273267E137BFDABD2F8524A7DC8E', '2022-04-13 11:21:11');
-INSERT INTO `tb_user` VALUES (11, 'zhangsan', NULL, '87F150CBDE9F8ED75C8DC975EB30E946', '2022-04-13 14:30:08');
-INSERT INTO `tb_user` VALUES (12, 'ghuodd', NULL, 'E10ADC3949BA59ABBE56E057F20F883E', '2022-04-15 16:25:01');
-INSERT INTO `tb_user` VALUES (13, 'test', NULL, 'E10ADC3949BA59ABBE56E057F20F883E', '2022-04-17 22:05:54');
+INSERT INTO `tb_user` VALUES (21, 'ZHANGSAN', NULL, '81CF2B6503CE48B913AD4705B7A09ABD', '2022-04-26 21:51:47');
 
 -- ----------------------------
 -- Table structure for video_category

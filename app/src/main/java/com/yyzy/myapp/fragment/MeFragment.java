@@ -1,13 +1,17 @@
 package com.yyzy.myapp.fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,6 +29,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yyzy.myapp.R;
+import com.yyzy.myapp.activity.HomeActivity;
 import com.yyzy.myapp.activity.LoginActivity;
 import com.yyzy.myapp.adapter.MyAdapter;
 import com.yyzy.myapp.adapter.ViedeoAdapter;
@@ -32,11 +37,19 @@ import com.yyzy.myapp.api.Api;
 import com.yyzy.myapp.api.CallBack;
 import com.yyzy.myapp.entity.CollectEntity;
 import com.yyzy.myapp.entity.MyEntity;
+import com.yyzy.myapp.entity.User;
 import com.yyzy.myapp.entity.ViedeoDataEntity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import skin.support.SkinCompatManager;
 
 public class MeFragment extends BaseFragment {
@@ -46,6 +59,7 @@ public class MeFragment extends BaseFragment {
     private TextView titleName,titleAuthor,readCount,likeCount,commentCount,enjoyCount;
     private List<MyEntity> datas = new ArrayList<>();
     private LinearLayout skin;
+    private String data;
 
     public MeFragment() {
     }
@@ -71,6 +85,7 @@ public class MeFragment extends BaseFragment {
         commentCount = mRootView.findViewById(R.id.tv_comment);
         enjoyCount = mRootView.findViewById(R.id.tv_enjoy);
         skin = mRootView.findViewById(R.id.skin);
+
         skin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,18 +124,21 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        data = findByKey("name");
+        titleName.setText(data);
         getNews();
+//        SharedPreferences sp = getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+//        String data	 = sp.getString("name","");    // 获取用户名
+
     }
 
     private void getNews() {
         new Api().getRequest(new CallBack() {
             @Override
             public void onSuccess(String res) {
-                //showToast(res);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.e("TAG", "MeFragment: "+res);
                         List<MyEntity> dataEntity = new Gson().fromJson(res, new TypeToken<List<MyEntity>>() {
                         }.getType());
                         datas = dataEntity;
@@ -128,8 +146,7 @@ public class MeFragment extends BaseFragment {
                                 .load(datas.get(0).getTitleImg())
                                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                                 .into(titleImg);
-                        titleName.setText(datas.get(0).getTitleName());
-                        titleAuthor.setText(datas.get(0).getTitleAuthor());
+                        titleAuthor.setText(datas.get(0).getTitleAuthor()+"\t"+data+"\t"+"，来到此平台！");
                         readCount.setText(String.valueOf(datas.get(0).getReadCount()));
                         likeCount.setText(String.valueOf(datas.get(0).getLikeCount()));
                         commentCount.setText(String.valueOf(datas.get(0).getCommentCount()));

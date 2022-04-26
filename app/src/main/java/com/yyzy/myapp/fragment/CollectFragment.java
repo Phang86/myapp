@@ -77,6 +77,7 @@ public class CollectFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+
         linearManager = new LinearLayoutManager(getActivity());
         linearManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(linearManager);
