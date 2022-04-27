@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
-    public static final String BASE_URLT = "http://192.168.1.101:8080/myapp";
+    public static final String BASE_URLT = "http://192.168.43.202:8080/myapp";
     public static final String BASE_URL = "http://192.168.88.202:8080/myapp";
     public Context context;
 

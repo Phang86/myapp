@@ -42,6 +42,8 @@
     <dimen name="dimen_340dp">340dp</dimen>
     <dimen name="dimen_370dp">370dp</dimen>
     <dimen name="size_12sp">12sp</dimen>
+    <dimen name="size_13sp">13sp</dimen>
+    <dimen name="size_14sp">14sp</dimen>
     <dimen name="size_15sp">15sp</dimen>
     <dimen name="size_16sp">16sp</dimen>
     <dimen name="size_18sp">18sp</dimen>

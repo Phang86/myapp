@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
-        android:background="@color/blue_text">
+        android:background="@drawable/shape_linear_gradual">
 
         <TextView
             android:layout_width="wrap_content"

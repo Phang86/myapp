@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50dp"
-        android:background="@color/blue_text">
+        android:background="@drawable/shape_linear_gradual">
 
         <Button
             android:id="@+id/callback"
@@ -58,7 +58,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="@dimen/dimen_67dp"
         android:layout_margin="@dimen/dimen_15dp"
         android:gravity="center_vertical">
 
@@ -87,20 +87,21 @@
                 android:id="@+id/title_Author"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_20dp"
-                android:text="号号好好"
+                android:text="@string/cllectDetail"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_12sp" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_focus"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_25dp"
             android:background="@drawable/collect_item_btn"
             android:layout_marginLeft="@dimen/dimen_20dp"
-            android:text="关注"
+            android:text="@string/focus"
             android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textSize="@dimen/size_13sp" />
     </LinearLayout>
 
     <TextView
@@ -115,7 +116,7 @@
     <ImageView
         android:id="@+id/big_img"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="@dimen/dimen_220dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginTop="@dimen/dimen_10dp"
         android:layout_marginRight="@dimen/dimen_15dp"
@@ -131,7 +132,7 @@
         android:layout_marginRight="@dimen/dimen_15dp"
         android:text="好好阿好"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="@dimen/size_14sp"
         android:textStyle="bold" />
 
     <TextView
