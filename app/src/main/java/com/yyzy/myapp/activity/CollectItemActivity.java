@@ -24,7 +24,7 @@ import java.util.List;
 
 public class CollectItemActivity extends BaseActivity {
 
-    private Button btn;
+    private Button btn,btnFocus;
     private TextView one,two,titleName,titleAuthor,textThree,tvName;
     private ImageView imgTitle,bgImg;
     private List<CollectEntity> datas = new ArrayList<>();
@@ -37,6 +37,7 @@ public class CollectItemActivity extends BaseActivity {
     @Override
     protected void initView() {
         btn = findViewById(R.id.callback);
+        btnFocus = findViewById(R.id.btn_focus);
         one = findViewById(R.id.textone);
         two = findViewById(R.id.texttwo);
         titleName = findViewById(R.id.title_Name);
@@ -49,6 +50,12 @@ public class CollectItemActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        btnFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("关注失败！");
             }
         });
     }
