@@ -95,6 +95,15 @@ public abstract class BaseFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         intentJump(cla, flags);
                         showToast(confirm);
+                        dialog.dismiss();
+                        //获取存储在sp里面的用户名和密码以及两个复选框状态
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("busApp", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        //清空所有
+                        editor.clear();
+                        //提交
+                        editor.commit();
+
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -120,6 +129,7 @@ public abstract class BaseFragment extends Fragment {
         SharedPreferences sp = getActivity().getSharedPreferences("sp_ttit", MODE_PRIVATE);
         return sp.getString(key, "");
     }
+
 
     protected void insertVal(String key, String val) {
         SharedPreferences sp = getActivity().getSharedPreferences("sp_ttit", MODE_PRIVATE);

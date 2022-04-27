@@ -28,6 +28,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yyzy.myapp.MainActivity;
 import com.yyzy.myapp.R;
 import com.yyzy.myapp.activity.HomeActivity;
 import com.yyzy.myapp.activity.LoginActivity;
@@ -103,9 +104,11 @@ public class MeFragment extends BaseFragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAlert(LoginActivity.class,
+                showAlert(MainActivity.class,
                         Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK,
                         "您已成功退出！","退出登录已取消！");
+
+
             }
         });
         btn.setOnTouchListener(new View.OnTouchListener() {

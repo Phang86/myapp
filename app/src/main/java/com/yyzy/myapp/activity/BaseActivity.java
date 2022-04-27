@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
-    public static final String BASE_URLT = "http://192.168.43.202:8080/myapp";
+    public static final String BASE_URLT = "http://192.168.1.102:8080/myapp";
     public static final String BASE_URL = "http://192.168.88.202:8080/myapp";
     public Context context;
 
@@ -54,8 +54,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     // 验证用户名是否匹配指定格式的方法
     public boolean checkUsername(String user) {
-        //用户名只能大小写字母，长度不低于6不大于20
-        String regexp = "^[a-zA-Z]{6,20}$";
+        //用户名只能大小写字母，长度不低于6不大于12。
+        String regexp = "^[a-zA-Z]{6,12}$";
         Pattern pattern = Pattern.compile(regexp);
         Matcher matcher = pattern.matcher(user);
         return matcher.matches();
@@ -64,8 +64,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     // 验证密码是否匹配指定格式的方法
     public boolean checkPassword(String pwd) {
-        //密码可用数字、大小写字母，长度不低于8
-        String regexp = "^[0-9a-zA-Z]{8}$";
+        //密码只能用大小写字母、数字组合，长度不低于8不大于16。
+        String regexp = "^[0-9a-zA-Z]{8,16}$";
         Pattern pattern = Pattern.compile(regexp);
         Matcher matcher = pattern.matcher(pwd);
         return matcher.matches();

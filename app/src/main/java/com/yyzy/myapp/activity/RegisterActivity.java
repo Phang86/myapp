@@ -82,10 +82,10 @@ public class RegisterActivity extends BaseActivity {
             showToast("注册密码不能为空哦！");
             return;
         }else if (!checkPassword(pwd)){
-            showToast("密码填写的格式不正确！密码可混合使用大小写字母、数字，长度不低于8！");
+            showToast("密码只能用大小写字母、数字组合，长度不低于8不大于16！");
             return;
         }else if (!checkUsername(user)){
-            showToast("用户名填写的格式不正确！用户名只能使用大小写字母，长度不低于6不大于20！");
+            showToast("用户名只能大小写字母，长度不低于6不大于12！");
             return;
         }
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -118,7 +118,7 @@ public class RegisterActivity extends BaseActivity {
                             edRegisterUser.setText("");
                             edRegisterPwd.setText("");
                         } else if (resultStr.equals("error")) {
-                            showToast("注册失败！");
+                            showToast("用户名已存在！");
                             return;
                         } else {
                             showToast("注册失败！服务器连接超时！");
