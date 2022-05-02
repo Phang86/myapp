@@ -20,7 +20,7 @@
         <item name="android:windowBackground">@mipmap/splash</item>
         <item name="colorControlNormal">#000</item>   <!-- normal border color change as you wish -->
         <item name="colorControlActivated">@color/green_200</item> <!-- activated color change as you wish -->
-        <item name="android:textColor">#FFFF3F3C</item> <!-- checkbox text color -->
+        <item name="android:textColor">@color/blue_100</item> <!-- checkbox text color -->
         <item name="android:soundEffectsEnabled">false</item>
     </style>
 </resources>

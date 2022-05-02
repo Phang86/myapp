@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">myapp</string>
+    <string name="app_name">资讯app</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="eduser">请输入用户名</string>

@@ -162,6 +162,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/line_collect_me"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_78dp"
         android:gravity="center_vertical">

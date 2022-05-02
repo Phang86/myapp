@@ -59,7 +59,7 @@ public class MeFragment extends BaseFragment {
     private ImageView titleImg;
     private TextView titleName,titleAuthor,readCount,likeCount,commentCount,enjoyCount;
     private List<MyEntity> datas = new ArrayList<>();
-    private LinearLayout skin;
+    private LinearLayout skin,myCollect;
     private String data;
 
     public MeFragment() {
@@ -85,8 +85,14 @@ public class MeFragment extends BaseFragment {
         likeCount = mRootView.findViewById(R.id.tv_like);
         commentCount = mRootView.findViewById(R.id.tv_comment);
         enjoyCount = mRootView.findViewById(R.id.tv_enjoy);
+        myCollect = mRootView.findViewById(R.id.line_collect_me);
         skin = mRootView.findViewById(R.id.skin);
-
+        myCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("此功能暂未开放！");
+            }
+        });
         skin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

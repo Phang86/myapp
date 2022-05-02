@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -100,11 +102,13 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         if (collectNum > 0){  //已收藏
                             tvCollect.setText(String.valueOf(--collectNum));
                             imgCollect.setImageResource(R.mipmap.collect);
+                            Toast.makeText(imgLike.getContext(), "已取消收藏！", Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         //未收藏
                         tvCollect.setText(String.valueOf(++collectNum));
                         imgCollect.setImageResource(R.mipmap.collect_select);
+                        Toast.makeText(imgLike.getContext(), "已收藏！", Toast.LENGTH_SHORT).show();
                     }
                     flagCollect = !flagCollect;
                 }
@@ -117,15 +121,20 @@ public class ViedeoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         if (likeNum > 0){  //已收藏
                             tvDz.setText(String.valueOf(--likeNum));
                             imgLike.setImageResource(R.mipmap.dianzan);
+                            Toast.makeText(imgLike.getContext(), "已取消点赞！", Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         //未收藏
                         tvDz.setText(String.valueOf(++likeNum));
                         imgLike.setImageResource(R.mipmap.dianzan_select);
+                        Toast.makeText(imgLike.getContext(), "已点赞！", Toast.LENGTH_SHORT).show();
                     }
                     flagLike = !flagLike;
                 }
             });
         }
+
     }
+
+
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -125,11 +126,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         if (collectNum > 0){  //已收藏
                             tvCollect.setText(String.valueOf(--collectNum));
                             imgCollect.setImageResource(R.mipmap.collect);
+                            Toast.makeText(imgLike.getContext(), "已取消收藏！", Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         //未收藏
                         tvCollect.setText(String.valueOf(++collectNum));
                         imgCollect.setImageResource(R.mipmap.collect_select);
+                        Toast.makeText(imgLike.getContext(), "已收藏！", Toast.LENGTH_SHORT).show();
                     }
                     flagCollect = !flagCollect;
                 }
@@ -142,11 +145,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         if (likeNum > 0){  //已收藏
                             tvDz.setText(String.valueOf(--likeNum));
                             imgLike.setImageResource(R.mipmap.dianzan);
+                            Toast.makeText(imgLike.getContext(), "已取消点赞！", Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         //未收藏
                         tvDz.setText(String.valueOf(++likeNum));
                         imgLike.setImageResource(R.mipmap.dianzan_select);
+                        Toast.makeText(imgLike.getContext(), "已点赞！", Toast.LENGTH_SHORT).show();
                     }
                     flagLike = !flagLike;
                 }
