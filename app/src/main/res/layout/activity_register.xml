@@ -33,13 +33,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dimen_10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="@dimen/dimen_25dp"
                     android:layout_height="@dimen/dimen_25dp"
-                    android:layout_marginLeft="@dimen/dimen_43dp"
                     android:background="@mipmap/account" />
 
                 <EditText
@@ -57,7 +57,7 @@
             </LinearLayout>
 
             <View
-                android:layout_width="@dimen/dimen_267dp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_1dp"
                 android:layout_marginTop="@dimen/dimen_23dp"
                 android:layout_marginBottom="@dimen/dimen_23dp"
@@ -67,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dimen_10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -74,7 +75,6 @@
                 <ImageView
                     android:layout_width="@dimen/dimen_25dp"
                     android:layout_height="@dimen/dimen_15dp"
-                    android:layout_marginLeft="@dimen/dimen_43dp"
                     android:background="@mipmap/pwd" />
 
                 <EditText
