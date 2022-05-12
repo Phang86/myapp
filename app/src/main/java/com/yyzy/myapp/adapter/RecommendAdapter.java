@@ -63,6 +63,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         vh.tvComment.setText(String.valueOf(dataEntity.getCommentNum()));
         vh.tvCollect.setText(String.valueOf(dataEntity.getCollectNum()));
         vh.tvDz.setText(String.valueOf(dataEntity.getLikeNum()));
+        vh.tvCreateTime.setText(String.valueOf(dataEntity.getCreateTime()));
         Glide.with(mContext)
                 .load(dataEntity.getHeadurl())
                 //设置圆角为30像素
@@ -89,7 +90,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView tvTitle, tvTitleName, tvComment, tvCollect, tvDz;
+        private TextView tvTitle, tvTitleName, tvComment, tvCollect, tvDz, tvCreateTime;
         private ImageView ivHeader, ivEnjoy, mThumb,imgCollect,imgLike;
         public FrameLayout mPlayerContainer;
         public PrepareView mPrepareView;
@@ -103,6 +104,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             tvComment = v.findViewById(R.id.tv_comment);
             tvCollect = v.findViewById(R.id.tv_collect);
             tvDz = v.findViewById(R.id.tv_dz);
+            tvCreateTime = v.findViewById(R.id.tv_create_time);
             ivHeader = v.findViewById(R.id.iv_header);
             ivEnjoy = v.findViewById(R.id.iv_enjoy);
             mPlayerContainer = v.findViewById(R.id.player_container);

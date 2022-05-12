@@ -11,6 +11,7 @@ public class ViedeoDataEntity implements Serializable {
     private int likeNum;
     private String title;
     private String playUrl;
+    private String createTime;
     private boolean isFlagCollect;
     private boolean isFlagLike;
 
@@ -22,6 +23,14 @@ public class ViedeoDataEntity implements Serializable {
         this.headurl = headurl;
         this.likeNum = likeNum;
         this.title = title;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public ViedeoDataEntity() {

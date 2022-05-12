@@ -132,6 +132,6 @@ public class ViedeoFragment extends BaseFragment {
             public void onFailure(Exception e) {
                 Log.e("TAG", "onFailure: " + e.getMessage());
             }
-        }, Api.API_VIDEO_URLT);
+        }, Api.API_VIDEO_URL);
     }
 }

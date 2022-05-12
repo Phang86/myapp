@@ -11,9 +11,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class Api {
-    public static final String API_VIDEO_URLT = "http://192.168.1.104:8080/myapp/video/list";
-    public static final String API_NEWS_URL = "http://192.168.1.104:8080/myapp/news/list";
-    public static final String API_MY_URL = "http://192.168.1.104:8080/myapp/me/list";
+    public static final String API_VIDEO_URL = "http://192.168.43.208:8080/myapp/video/list";
+    public static final String API_LEGION_URL = "http://192.168.43.208:8080/myapp/legion/list";
+    public static final String API_HOT_URL = "http://192.168.43.208:8080/myapp/hot/list";
+    public static final String API_MOVIE_URL = "http://192.168.43.208:8080/myapp/movie/list";
+    public static final String API_POLITICS_URL = "http://192.168.43.208:8080/myapp/politics/list";
+    public static final String API_NEWS_URL = "http://192.168.43.208:8080/myapp/news/list";
+    public static final String API_MY_URL = "http://192.168.43.208:8080/myapp/me/list";
     //public static final String API_URL = "http://192.168.43.105:8080/myapp/video/list";
 
     public void getRequest(final CallBack callback, String url) {

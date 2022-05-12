@@ -32,7 +32,7 @@ import java.util.List;
 
 public class HomeFragment extends BaseFragment {
 
-    private String titles[] = {"关注","推荐"};
+    private String titles[] = {"推荐新闻","军事科技","热点视频","电影预告","时事政治"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private ViewPager viewPager;
     private SlidingTabLayout slidingTabLayout;
@@ -62,10 +62,12 @@ public class HomeFragment extends BaseFragment {
     protected void initData() {
         mFragments.add(new ViedeoFragment().newInstance(titles[0]));
         mFragments.add(new RecommendFragment().newInstance(titles[1]));
+        mFragments.add(new HotFragment().newInstance(titles[2]));
+        mFragments.add(new MovieFragment().newInstance(titles[3]));
+        mFragments.add(new PoliticsFragment().newInstance(titles[4]));
         viewPager.setOffscreenPageLimit(mFragments.size());
         homeAdapter = new HomeAdapter(getFragmentManager(), titles, mFragments);
         viewPager.setAdapter(homeAdapter);
         slidingTabLayout.setViewPager(viewPager);
-
     }
 }

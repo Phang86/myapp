@@ -194,7 +194,7 @@ public class RecommendFragment extends BaseFragment implements OnItemChildClickL
             public void onFailure(Exception e) {
                 Log.e("TAG", "onFailure: " + e.getMessage());
             }
-        }, Api.API_VIDEO_URLT);
+        }, Api.API_LEGION_URL);
     }
 
     @Override
@@ -263,7 +263,6 @@ public class RecommendFragment extends BaseFragment implements OnItemChildClickL
         getVideoViewManager().add(mVideoView, Tag.LIST);
         mVideoView.start();
         mCurPos = position;
-
 
     }
 
